@@ -1,0 +1,11 @@
+PORT = 3000
+
+ NODE_ENV = development
+
+ DB_DIALECT = postgres
+ DB_HOST= localhost
+ DB_USERNAME= postgres
+ DB_PASSWORD = agla1313
+ DB_DATABASE = AcademloMeals
+ DB_PORT = 5433
+ DB_LOGGING= false
