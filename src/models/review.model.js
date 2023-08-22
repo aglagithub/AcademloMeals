@@ -1,30 +1,28 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../database/config');
 
-const User = db.define('users', {
+const Review = db.define('reviews', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
   },
-  name: {
-    type: DataTypes.STRING,
+  userId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
+  comment: {
+    type: DataTypes.TEXT,
     allowNull: false,
   },
-  role: {
-    type: DataTypes.ENUM('normal', 'admin'),
+  restaurantId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: 'normal',
+  },
+  rating: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
   status: {
     type: DataTypes.BOOLEAN,
@@ -33,4 +31,4 @@ const User = db.define('users', {
   },
 });
 
-module.exports = User;
+module.exports = Review;

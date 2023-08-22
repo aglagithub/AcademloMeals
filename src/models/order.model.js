@@ -1,36 +1,34 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../database/config');
 
-const User = db.define('users', {
+const Order = db.define('orders', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
   },
-  name: {
-    type: DataTypes.STRING,
+  mealId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
+  userId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  role: {
-    type: DataTypes.ENUM('normal', 'admin'),
+  totalPrice: {
+    type: DataTypes.FLOAT ,
     allowNull: false,
-    defaultValue: 'normal',
+  },
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
   status: {
-    type: DataTypes.BOOLEAN,
+    type: DataTypes.ENUM('active', 'cancelled', 'completed'),
     allowNull: false,
-    defaultValue: true,
+    defaultValue: 'active',
   },
 });
 
-module.exports = User;
+module.exports = Order;

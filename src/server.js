@@ -1,9 +1,9 @@
 require('dotenv').config();
-// TODO const initModel =require('./models/initModels')
+const { db } = require('./database/config');
+const initModel =require('./models/initModels')
 
 //console.log("Hello from server.js blog app")
 const app = require('./app');
-const { db } = require('./database/config');
 
 //Autenticación en la base de datos
 db.authenticate()
@@ -15,7 +15,7 @@ db.authenticate()
   });
 
   // inicializacion de las relaciones del modelo
-  // TODO initModel();
+  initModel();
 
 //Sincronización con la base de datos
 db.sync()
