@@ -1,4 +1,4 @@
-console.log('In File: ', __filename);
+//console.log('In File: ', __filename);
 
 const catchAsync = require('../utils/catchAsync');
 const Restaurant = require('../models/restaurant.model');

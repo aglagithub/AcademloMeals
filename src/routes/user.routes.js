@@ -1,4 +1,4 @@
-console.log('In user.route.js');
+//console.log('In file: user.route.js');
 const express = require('express');
 
 //controllers
@@ -24,12 +24,18 @@ router.post(
 
 router.use(authMiddleware.protect);
 
+router.route('/').get(userController.findAll).get(userController.findOne);
+
 router
   .use('/:id', userMiddleware.existUser)
   .route('/:id')
-      .patch(validationMiddleware.updateUserValidation, authMiddleware.protectAccountOwner, userController.update)
-      .delete(authMiddleware.protectAccountOwner,userController.delete);
-
+  .get(userController.findOne)
+  .patch(
+    validationMiddleware.updateUserValidation,
+    authMiddleware.protectAccountOwner,
+    userController.update
+  )
+  .delete(authMiddleware.protectAccountOwner, userController.delete);
 /* router.route('/')
       .get(userController .findAll)
       .post(userController.create)

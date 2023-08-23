@@ -26,8 +26,8 @@ exports.createUserValidation = [
     body('password')
         .isLength({ min: 8 }).withMessage('Password must be at least 8 characters')
         .matches(/[a-zA-Z]/).withMessage('Password must have at least one letter'),
-    body('role')
-        .isIn('normal', 'admin').withMessage('role only : "normal" or "admin"'),
+   /*  body('role')
+        .isIn('normal', 'admin').withMessage('role only : "normal" or "admin"'), */
     validFields,
 ]
 

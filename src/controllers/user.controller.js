@@ -1,4 +1,4 @@
-console.log('In File: ', __filename);
+//console.log('In File: ', __filename);
 const AppError = require('./../utils/appError');
 const bcrypt = require('bcryptjs');
 const catchAsync = require('../utils/catchAsync');
@@ -12,7 +12,7 @@ const User = require('../models/user.model');
 exports.create = catchAsync(async (req, res, next) => {
   //to verify
   //----------
-
+   console.log('In SignUp req.body',req.body);
   const { name, email, password, role } = req.body;
   console.log('In SignUp (Create user)', name, email, password, role);
 
@@ -86,8 +86,22 @@ exports.login = catchAsync(async (req, res, next) => {
   });
 });
 
-//nota faltan get one y get all users
+//nota faltan  findAll y  findOne users
 
+exports.findAll = catchAsync(async (req, res, next) => {
+  console.log('En ruta findAll de user');
+
+  return res.status(200).json({
+    status: 'find all users Not implemented',
+  });
+});
+exports.findOne = catchAsync(async (req, res, next) => {
+  console.log('En ruta findOne de user');
+
+  return res.status(200).json({
+    status: 'find one user Not implemented',
+  });
+});
 
 //------
 //update
